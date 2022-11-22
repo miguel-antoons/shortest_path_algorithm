@@ -1,5 +1,5 @@
-
 import numpy as np
+
 
 def main():
     print('Ferme là !')
