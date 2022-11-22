@@ -6,5 +6,3 @@ The 3 algorithms cotained here are :
  - Floyd - Warshall
  
 This was done for a school project.
-
-||tg maximus||
