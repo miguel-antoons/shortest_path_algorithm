@@ -1,6 +1,5 @@
 import numpy as np
 
-
 # function bellmanFord
 # input: adjacency matrix numpy
 # output: matrix numpy with shortest path from all nodes to all other nodes
@@ -9,28 +8,15 @@ def bellman_ford(matrix):
     size = matrix.shape[0]
 
     # initialize distance matrix
-    distance = np.zeros((size, size), dtype=int)
-    distance.fill(np.inf)
+    distance = np.matrix(np.ones(matrix.shape) * np.inf)
 
-    # set distance from node to itself to 0
-    for i in range(size):
-        distance[i][i] = 0
+    for src in range(size):
+        distance[src, src] = 0
 
-    # for each node
-    for i in range(size):
-        # for each edge
-        for j in range(size):
-            for k in range(size):
-                # if there is an edge
+        for _ in range((size * size) - 1):
+            for row in range(size):
+                for col in range(size):
+                    if distance[src, row] != np.inf and distance[src, row] + matrix[row, col] < distance[src, col]:
+                        distance[src, col] = distance[src, row] + matrix[row, col]
 
-                matrixJK = matrix[j][k]
-                distanceIK = distance[i][k]
-                distanceIJ = distance[i][j]
-
-
-                if matrix[j][k] != 0:
-                    # if the distance from node i to node k is greater than the distance from node i to node j + the distance from node j to node k
-                    if distance[i][k] > distance[i][j] + matrix[j][k] & distance[i][j] != np.inf:
-                        # set the distance from node i to node k to the distance from node i to node j + the distance from node j to node k
-                        distance[i][k] = distance[i][j] + matrix[j][k]
     return distance
