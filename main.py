@@ -4,20 +4,21 @@ from algo.Floyd_Warshall import Floyd_Warshall
 from algo.dijkstra import Dijkstra
 
 def main():
-    test   = open_csv("csv/graph44.csv")
-    result = Bellman_Ford(test)
+    graph   = open_csv("csv/graph44.csv")
+    print(graph, "\n")
+    result = Bellman_Ford(graph)
     print(result , "\n")
-    result2 = Dijkstra(test)
+    result2 = Dijkstra(graph)
     print(result2, "\n")
-    result3 = Floyd_Warshall(test)
+    result3 = Floyd_Warshall(graph)
     print(result3 , "\n")
 
-    print("Compare results", "\n")
+    print("Compare results :")
 
     if np.array_equal(result, result2) and np.array_equal(result, result3):
-        print("All algorithms are equal :D")
+        print("All algorithms are equal :D", "\n")
     else:
-        print("Algorithms are not equal :(")
+        print("Algorithms are not equal :(", "\n")
 
 # function to open csv and return matrix of int
 def open_csv(file):
