@@ -6,11 +6,18 @@ from algo.dijkstra import Dijkstra
 def main():
     test   = open_csv("csv/graph44.csv")
     result = bellman_ford(test)
-    print(result)
+    print(result , "\n")
     result2 = Dijkstra(test)
-    print(result2)
+    print(result2, "\n")
     result3 = Floyd_Warshall(test)
-    print(result3)
+    print(result3 , "\n")
+
+    print("Compare results", "\n")
+
+    if np.array_equal(result, result2) and np.array_equal(result, result3):
+        print("All algorithms are equal :D")
+    else:
+        print("Algorithms are not equal :(")
 
 # function to open csv and return matrix of int
 def open_csv(file):
