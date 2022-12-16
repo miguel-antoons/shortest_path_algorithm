@@ -1,11 +1,11 @@
 import numpy as np
-from algo.bellmanFord import bellman_ford
+from algo.bellmanFord import Bellman_Ford
 from algo.Floyd_Warshall import Floyd_Warshall
 from algo.dijkstra import Dijkstra
 
 def main():
     test   = open_csv("csv/graph44.csv")
-    result = bellman_ford(test)
+    result = Bellman_Ford(test)
     print(result , "\n")
     result2 = Dijkstra(test)
     print(result2, "\n")
