@@ -7,16 +7,15 @@ import numpy as np
 def Bellman_Ford(C : np.matrix ) -> np.matrix:
     size = C.shape[0]
 
-    # initialize distance C
-    distance = np.matrix(np.ones(C.shape) * np.inf)
+    D = np.matrix(np.ones(C.shape) * np.inf)
 
     for src in range(size):
-        distance[src, src] = 0
+        D[src, src] = 0
 
         for _ in range((size * size) - 1):
             for row in range(size):
                 for col in range(size):
-                    if distance[src, row] != np.inf and distance[src, row] + C[row, col] < distance[src, col]:
-                        distance[src, col] = distance[src, row] + C[row, col]
+                    if D[src, row] != np.inf and D[src, row] + C[row, col] < D[src, col]:
+                        D[src, col] = D[src, row] + C[row, col]
 
-    return distance
+    return D
