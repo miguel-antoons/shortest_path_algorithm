@@ -4,7 +4,8 @@ import numpy as np
 # input: adjacency matrix numpy
 # output: matrix numpy with shortest path from all nodes to all other nodes
 
-def Bellman_Ford(C : np.matrix ) -> np.matrix:
+
+def Bellman_Ford(C: np.matrix) -> np.matrix:
     size = C.shape[0]
 
     D = np.matrix(np.ones(C.shape) * np.inf)
