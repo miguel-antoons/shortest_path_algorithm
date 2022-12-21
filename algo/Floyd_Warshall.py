@@ -12,6 +12,10 @@ def Floyd_Warshall(C: np.matrix) -> np.matrix:
     """
     n = C.shape[0]
     D = C.copy()
+
+    for v in range(n):
+        D[v, v] = 0
+
     for k in range(n):
         for i in range(n):
             for j in range(n):

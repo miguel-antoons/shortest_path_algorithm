@@ -3,9 +3,11 @@ from algo.bellmanFord import Bellman_Ford
 from algo.Floyd_Warshall import Floyd_Warshall
 from algo.dijkstra import Dijkstra
 
+csv_path = "csv/graph44.csv"
+
 
 def main():
-    graph = open_csv("csv/graph44.csv")
+    graph = open_csv(csv_path)
     print(graph, "\n")
     result = Bellman_Ford(graph)
     print(result, "\n")
